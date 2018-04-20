@@ -1,0 +1,14 @@
+<div class="panel panel-danger" id="aj">
+	<div class="panel-heading"> <%=@post.title%></div>
+	<div class="panel-body"><%= image_tag(@post.image_url, :size => "260x180") %> 
+	</div>
+	<h2><%= @post.comments.count %> Comments ::</h2>
+	<h3> Add comment</h3>
+	<h2><%= @post.likes.count %> 
+<%= link_to "Like", all_likes_likes_path(@post),method: :GET %>
+		</h2>
+	<%= link_to "Like", post_likes_path(@post),method: :post %>
+	 
+	<%= render 'comments/comment'%>
+</div> 
+

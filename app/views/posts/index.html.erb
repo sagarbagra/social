@@ -1,0 +1,34 @@
+<strong class="card-title"> <%= link_to "Make Post",new_post_path ,class: 'btn btn-primary'%></strong><br><br>
+
+<div class="content mt-5">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card" style="margin-left: 339px;">
+          <div class="card-header">          
+            <div class="card-body">
+              <%@posts.each do |post|%>  
+              <div class="panel panel-danger">
+
+                <div class="panel-heading"> 
+                  <%= image_tag(post.user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>   <b><i>User_name ::</i> <%= post.user.name%></b>  
+                                 
+                </div>
+                <div class="panel-heading"><i>Caption ::</i><%=post.title%></div>
+                <div class="panel-body" style="margin-left: 89px;">     
+                  <%= image_tag(post.image,:size => "260x180") %> 
+                  <div><%= time_ago_in_words(post.created_at)%>
+                    <br>
+                     <%= link_to "see more", post_path(post)%>
+                  </div>
+                </div>                             
+              </div>                            
+              <%end%>
+              <%= will_paginate @posts, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, previous_label: "older", next_label: "newer",inner_window: 1,outer_window: 0%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

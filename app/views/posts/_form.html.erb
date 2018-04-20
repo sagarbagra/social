@@ -1,0 +1,36 @@
+<div class="panel-body">
+  <%=form_for @post do |f|%>       
+  <div class="form-group">
+    <label for="myName">Title *</label>
+    <%=f.text_field :title, class:"form-control",text:"required"%>
+    <span id="error_name" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label for="lastname">Image *</label>
+    <%=f.file_field :image, class:"form-control",text:"required"%>
+    <span id="error_lastname" class="text-danger"></span>
+  </div> 
+    <%=f.submit "Submit", class:"btn btn-primary center" %>
+  <%end%>
+</div>
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+$("#new_post").validate({
+   rules: {
+     "post[title]": {
+       required: true,
+       maxlength: 10
+     }  
+    
+   },
+   messages: {
+     "post[title]": {
+       required: "title is required.",
+       maxlength: "Máximo 10 caracteres requeridos."
+     }
+   }
+ });
+ });
+</script>

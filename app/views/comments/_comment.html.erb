@@ -1,0 +1,9 @@
+<% @comments.each do |comment|%>
+<div>
+<p><%=comment.user.email%></p>
+<p><%= comment.comment%></p>
+<%=time_ago_in_words(comment.created_at)%>
+<%= link_to "Delete Comment",[comment.post, comment],method: :delete, class:"btn btn-primary"%>
+</div>
+<%end%>
+<%= render "comments/form"%>

@@ -1,0 +1,28 @@
+
+<div class="content mt-5">
+  <div class="animated fadeIn">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card" style="margin-left: 339px;">
+          <div class="card-header">          
+            <div class="card-body">
+              <%@posts.each do |post|%>  
+              <div class="panel panel-danger">
+
+              <div class="panel-heading"><i>Caption :: </i><%=post.title%></div>
+                <div class="panel-body" style="margin-left: 89px;">     
+                  <%= image_tag(post.image, :size => "260x180") %> 
+                  <div><%= time_ago_in_words(post.created_at)%>                            
+                  </div>
+                </div> 
+                <h2><%= post.comments.count %> <%= link_to "Comment ::", all_likes_likes_path(post),method: :GET %></h2>
+	<h2><%= post.likes.count %> <%= link_to "Like ::", all_likes_likes_path(post),method: :GET %></h2>                            
+              </div>                            
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
