@@ -1,0 +1,11 @@
+<%= form_tag("/posts/#{@post.id}/comment", method: "post") do %>
+
+	<p>
+		<%=label_tag :Comment%></br>
+		<%=text_area_tag :comment%>
+	</p>
+	<br>
+	<p>
+		<input type="submit" name="" value="comment">
+	</p>
+<%end%>

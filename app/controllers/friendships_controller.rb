@@ -6,6 +6,7 @@ class FriendshipsController < ApplicationController
 	end
 	
 	def myfriends
+		binding.pry
 		@friends=current_user.inverse_friendships
 		unless @friends.present?
 			@friends = current_user.friendships

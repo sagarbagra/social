@@ -1,49 +1,135 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+<div class="container">
+    <h1 class="well">Registration Form</h1>
+  <div class="col-lg-12 well">
+  <div class="row">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="form-group">
+                <label>Email Address</label>
+                <%= f.email_field :email, autofocus: true, autocomplete: "email",placeholder: "Enter Email Address Here..", class: "form-control" %>
+              </div>  
+              <div class="col-sm-6 form-group">
+                <label>First Name</label>  
+                <%= f.text_field :name, autocomplete: "name",placeholder: "Enter First Name Here..", class: "form-control" %>    
+              </div>
+              <div class="col-sm-6 form-group">
+                <label>Age</label>
+                <%= f.text_field :age,  autocomplete: "age",placeholder: "Enter Age Here..", class: "form-control" %>
+              </div>
+            </div>          
+            <div class="form-group">
+              <label>Gender</label>
+              <%= f.text_field :gender,  autocomplete: "gender",placeholder: "Enter Gender Here..", class: "form-control" %>
+            </div>  
+            <div class="row">
+              <div class="col-sm-4 form-group">
+                <label>Password</label>
+                <%= f.label :password %>
+                <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <% end %><br />
+                <%= f.password_field :password, autocomplete: "off",placeholder: "Enter Password Here..", class: "form-control" %>
+              </div>  
+              <div class="col-sm-4 form-group">
+                <label>Password Confirmation</label>
+                <%= f.password_field :password_confirmation, autocomplete: "off",placeholder: "Enter Confirm Password Here..", class: "form-control" %>
+              </div>  
+              <div class="col-sm-4 form-group">
+                <label>Image</label>
+                 <%= f.file_field :image,  autocomplete: "image" %>
+              </div>    
+            </div>
+                   
+         <%= f.submit "Sign up",class: "btn btn-lg btn-info" %>
+          </div>
+        <% end %> 
+        </div>
+        <%= render "devise/shared/links" %>
   </div>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name,  autocomplete: "name" %>
   </div>
+  <style type="text/css">
 
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.text_field :age,  autocomplete: "age" %>
-  </div>
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
 
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender,  autocomplete: "gender" %>
-  </div>
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-right: 15px;
+  padding-left: 15px;
+}
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+}
+/* Make the masthead heading the same height as the navigation */
+.header h3 {
+  padding-bottom: 19px;
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+}
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image,  autocomplete: "image" %>
-  </div>
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
 
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.jumbotron .btn {
+  padding: 14px 24px;
+  font-size: 21px;
+}
 
-<%= render "devise/shared/links" %>
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+}
+.marketing p + h4 {
+  margin-top: 28px;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+</style>

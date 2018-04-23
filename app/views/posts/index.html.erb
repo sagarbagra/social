@@ -14,7 +14,7 @@
                   <%= image_tag(post.user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>   <b><i>User_name ::</i> <%= post.user.name%></b>  
                                  
                 </div>
-                <div class="panel-heading"><i>Caption ::</i><%=post.title%></div>
+                <div class="panel-heading post-title"><%=post.title%></div>
                 <div class="panel-body" style="margin-left: 89px;">     
                   <%= image_tag(post.image,:size => "260x180") %> 
                   <div><%= time_ago_in_words(post.created_at)%>

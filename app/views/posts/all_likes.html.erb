@@ -2,21 +2,7 @@
 	<div class="panel-heading"></div>
 	<div class="panel-body"></div>
 	<% @likes.each do |likee|%> 
-	 <h2><%= image_tag(likee.image_url, :size => "40x30",class: 'image-responsive')%>   <%=likee.email%></h2>	 
+	 <h2><%= image_tag(likee.image_url, :size => "40x30",class: 'image-responsive')%> 
+	   <%=likee.name%></h2>	 
 	<%end%>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
