@@ -1,12 +1,11 @@
 class FriendshipsController < ApplicationController
 	before_action :authenticate_user!
 	def index
-		# binding.pry
 		@friends=Friendship.where(friend_id: current_user.id, status: 'Pending').includes(:user)
 	end
 	
 	def myfriends
-		binding.pry
+		# binding.pry
 		@friends=current_user.inverse_friendships
 		unless @friends.present?
 			@friends = current_user.friendships
@@ -15,9 +14,11 @@ class FriendshipsController < ApplicationController
 	end
 
 	def create	
+		# binding.pry
 		@user = User.find(current_user.id)
 		@friend = User.find(params[:friend_id])
-		@t=Friendship.where(user_id: @user , friend_id: @friend).exists?
+		# @t=Friendship.where(user_id: @user , friend_id: @friend).exists?
+		 @t = Friendship.where('( user_id = ? and friend_id =? ) or (friend_id = ? and user_id=?)',@user,@friend,@user,@friend).exists?		
 		if @t == true
 			redirect_to root_path
 		else

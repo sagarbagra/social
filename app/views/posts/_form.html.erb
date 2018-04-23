@@ -1,18 +1,19 @@
 <div class="panel-body">
-  <%=form_for @post do |f|%>       
+  <%=form_for @post do |f|%>   
+  
   <div class="form-group">
-    <label for="myName">Title *</label>
-    <%=f.text_field :title, class:"form-control",text:"required"%>
-    <span id="error_name" class="text-danger"></span>
-  </div>
+        <label for="cc-name" class="control-label mb-1">Title</label>
+        <%=f.text_field :title, class: "form-control","aria-required": "true","aria-invalid": "false",style: "width: 300px;height: 40px;"%>
+      </div>
   <div class="form-group">
     <label for="lastname">Image *</label>
-    <%=f.file_field :image, class:"form-control",text:"required"%>
+    <%=f.file_field :image, class:"form-control",text:"required",style: "width: 300px;height: 40px;"%>
     <span id="error_lastname" class="text-danger"></span>
   </div> 
     <%=f.submit "Submit", class:"btn btn-primary center" %>
   <%end%>
 </div>
+
 
 
 <script type="text/javascript">
@@ -33,4 +34,4 @@ $("#new_post").validate({
    }
  });
  });
-</script>
+</script>  
