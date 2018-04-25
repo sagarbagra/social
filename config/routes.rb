@@ -12,6 +12,7 @@ resources :posts do
 		get :all_likes
 		post :comment
 		post :remove_comment
+		get :user_profile
 	end
 	collection do		
 		get :my_post

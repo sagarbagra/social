@@ -5,14 +5,13 @@ class FriendshipsController < ApplicationController
 	end
 	
 	def myfriends
-		# binding.pry
+		binding.pry
 		@friends=current_user.inverse_friendships
 		unless @friends.present?
 			@friends = current_user.friendships
 		end
 		# @friends=Friendship.where('( user_id != ?) and status=?',current_user,"Accepted")		
 	end
-
 	def create	
 		# binding.pry
 		@user = User.find(current_user.id)
@@ -53,7 +52,6 @@ class FriendshipsController < ApplicationController
 		# binding.pry
 		friendship = Friendship.find_by(user_id: params[:id])
 		if friendship.present?
-			# alert[:message] = "Friendhip accepted successfully"
 			friendship.update(status: 'Accepted')
 			# current_user.friendships.create(:friend_id => params[:id],:status => "Accepted")
 		else
@@ -66,7 +64,6 @@ class FriendshipsController < ApplicationController
 	def reject
 		friendship = Friendship.find_by(id: params[:id])
 		if friendship.present?
-			# alert[:message] = "Friendhip accepted successfully"
 			friendship.update(status: 'Rejected')
 		else
 			# alert[:message] = "Sorry Not found"

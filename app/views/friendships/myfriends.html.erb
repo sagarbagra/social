@@ -19,7 +19,7 @@
         <td><%=friend.user.name%></td>
         <td><%= image_tag(friend.user.try(:image).try(:url),:size => "260x180") %></td>
         
-        <td><%= link_to "Details",friendships_path(:friend_id => friend), class: "btn btn-info"%></td>
+        <td><%= link_to "Profile",user_profile_post_path(current_user.id), class: "btn btn-info"%></td>
       </tr>            
     </tbody>
     <%end%>

@@ -62,6 +62,8 @@ class PostsController < ApplicationController
 		@post=Post.find(params[:id])	
 		@likes=@post.liked_users
 	end
+	def user_profile
+	end
 
 	def unlike
 		@post=Post.find(params[:id])
