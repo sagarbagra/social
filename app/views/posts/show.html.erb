@@ -10,15 +10,15 @@
 								<div class="panel-heading"> <%=@post.title%></div>
 								<div class="panel-body"><%= image_tag(@post.image_url, :size => "260x180",style: "margin-left: 20%;") %> 
 								</div>
-								<h4><%= @post.comments.count %> Comments ::</h4>
-
-								<%= link_to " #{@post.likes.count} Likes", all_likes_post_path(@post.id) , class: "btn btn-primary"%>
+								
+								<%= link_to " #{@post.likes.count} Likes", all_likes_post_path(@post.id) , class: "btn btn-primary", style: "margin-left: 109px;"%>
 								<%if @my_like.present?%>
-								<%= link_to "UnLike", unlike_post_path(@post.id) ,method: :post  ,  class: "btn btn-primary" %>
+								<%= link_to "UnLike", unlike_post_path(@post.id) ,method: :post  ,  class: "btn btn-primary",
+								style:"margin-left: 133px;"%>
 								<%else%>
-								<%= link_to "Like", like_post_path(@post),method: :post  , class: "btn btn-primary" %>
+								<%= link_to "Like", like_post_path(@post),method: :post  , class: "btn btn-primary",  style: "margin-left: 133px;"  %>
 								<%end%>
-
+								<h4><%= @post.comments.count %> Comments ::</h4>
 								<%= render 'posts/comment'%>
 							</div> 
 						</div>

@@ -1,8 +1,8 @@
 <% @comments.each do |comment|%>
-<div>
+<div >
 	<br>
-<p><b><%= image_tag(comment.user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>  <%=comment.user.name.titleize%></b>                <%= comment.comment%></p>
-<p></p>
+<p class="post-title"><b><%= image_tag(comment.user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>  <%=comment.user.name.titleize%></b>                <%= comment.comment%></p>
+
 <%=time_ago_in_words(comment.created_at)%>
 <%= link_to "Delete",remove_comment_post_path(comment: comment), method: :post, class:"btn btn-primary btn-sm"%>
 </div>
