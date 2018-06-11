@@ -1,26 +1,28 @@
 <body>
-<div class="container">  
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Image</th>
-        <th>Email</th>
-        <th>Name</th>
-        <th colspan="4">Action</th>
-      </tr>
-    </thead>
-     <%@users.each do |user|%>
-    <tbody>
-      <tr>
-        <td><%= image_tag(user.image,:size => "260x180") %></td>
-        <td><%=user.email%></td>
-         <td><%=user.name%></td>
-        <td><%= link_to "Add friend",friendships_path(:friend_id => user) ,method: :post,class: "btn btn-success"%></td>
-      </tr>            
-    </tbody>
-    <%end%>
-  </table>
-</div>
+  <div class="container">  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th colspan="4">Action</th>
+        </tr>
+      </thead>
+      <%@users.each do |user|%>
+      <tbody>
+        <tr>
+          <td><%= image_tag(user.image,:size => "260x180", style: "border-radius: 100%;") %></td>
+          <td><%=user.email.titleize%></td>
+          <td><%=user.name.titleize%></td>
+          <td><%= link_to "Add friend",friendships_path(:friend_id => user) ,method: :post,class: "btn btn-success"%>
+            <%= link_to "Message",friendships_path(:friend_id => user) ,method: :post,class: "btn btn-success"%>
+          </td>
+        </tr>            
+      </tbody>
+      <%end%>
+    </table>
+  </div>
 </body>
-</html>
+
 

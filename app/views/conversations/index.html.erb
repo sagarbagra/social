@@ -1,0 +1,50 @@
+
+<div class="container">  
+  <table class="table" border="1">
+    <thead>
+      <tr>
+        <th>Chat User</th>
+        <th>All User</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style=" border-color: inherit;">
+        <td> 
+          <ul id="conversations-list">
+            <% @conversations.each do |conversation| %>
+            <% if conversation.sender_id == current_user.id || conversation.receiver_id == current_user.id %>
+            <% if conversation.sender_id == current_user.id %>
+            <% recipient = User.find(conversation.receiver_id) %>
+            <li>
+              <%= image_tag(recipient.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>
+              <%= link_to recipient.name.titleize ,conversation_messages_path(conversation)%></li>
+              <% else %>
+              <% recipient = User.find(conversation.sender_id) %>
+              <li>
+                <%= image_tag(recipient.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>
+                <%= link_to recipient.name.titleize,conversation_messages_path(conversation)%>
+              </li>
+              <% end %>        
+              <% end %>
+              <% end %>   
+            </ul>
+        </td>
+        <td>
+        	<ul>
+        		<% User.all.each do |other_user| %>
+        		<% if other_user != current_user %>
+        		<li>
+        			<%= link_to(conversations_path(:other_user => other_user.id), method: :POST  ) do %>
+               <%= image_tag(other_user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>
+        			<%= other_user.name.titleize %>
+        			<% end %>
+        		</li>
+        		<% end %>
+        		<% end %>
+        	</ul>
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+</div>
+ 

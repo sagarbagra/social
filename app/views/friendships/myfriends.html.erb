@@ -17,7 +17,7 @@
     <tbody>
       <tr>
         <td><%=friend.user.name%></td>
-        <td><%= image_tag(friend.user.try(:image).try(:url),:size => "260x180") %></td>
+        <td><%= image_tag(friend.user.try(:image).try(:url),:size => "260x180",style: "border-radius: 100%;") %></td>
         
         <td><%= link_to "Profile",user_profile_post_path(current_user.id), class: "btn btn-info"%></td>
       </tr>            

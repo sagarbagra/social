@@ -1,41 +1,43 @@
 
 <html>
-  <head>
-    <title>Homework</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Homework</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+ <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 
-  <body class="bg">
-  	<nav class="navbar navbar-default ">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand " href="/posts">Social</a>
-    </div>
-     <%if user_signed_in?%> 
-    <ul class="nav navbar-nav">      
-      <li><a href="/posts/my_post">My Post</a></li>
-      <li><%= link_to "All User", all_users_index_path(params[:email]), method: "GET" %></li>
-      <li><%= link_to "Friend request", friendships_path %></li>
-      <li><%= link_to "My friends", myfriends_friendships_path %></li>
-      <li><%= link_to "Profile", user_profile_post_path(current_user.id) %></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">  
-      <li style="margin-top: 17px;"><b><%= current_user.email%></b></li>   
-      <li class="active"><%= link_to "Log out", destroy_user_session_path, method: "delete",class: "btn " %></a>
-      </li>
-    </ul>    
+</head>
+
+<body class="bg">
+  <nav class="navbar navbar-default ">
+    <div class="container-fluid", style="padding: 0px;margin: 0px;">
+      <div class="navbar-header">
+        <a class="navbar-brand " href="/posts" style="margin-left: 2px;color: black;">Social</a>
+      </div>
+      <%if user_signed_in?%> 
+      <ul class="nav navbar-nav">      
+        <li><a href="/posts/my_post">My Post</a></li>
+        <li><%= link_to "All User", all_users_index_path(params[:email]), method: "GET" %></li>
+        <li><%= link_to "Friend request", friendships_path %></li>
+        <li><%= link_to "My friends", myfriends_friendships_path %></li>
+        <li><%= link_to "Profile", user_profile_post_path(current_user.id) %></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">  
+        <li style="margin-top: 17px;"><b><%= current_user.email%></b></li>   
+        <li class="active"><%= link_to "Log out", destroy_user_session_path, method: "delete",class: "btn " %></a>
+        </li>
+      </ul>    
       <%else%>
-    <ul class="nav navbar-nav navbar-right">
-      <li class="active" ><%= link_to "Log in", new_user_registration_path %></li>
-      <%end%>
-    </ul>
-  </div>
-</nav>
-    <%= yield %>
-  </body>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active" ><%= link_to "Log in", new_user_registration_path %></li>
+        <%end%>
+      </ul>
+    </div>
+  </nav>
+  <%= yield %>
+</body>
 </html>
 
 

@@ -14,7 +14,7 @@
     <tbody>
       <tr>
         <td><%=friend.user.name%></td>
-        <td><%= image_tag(friend.user.try(:image).try(:url),:size => "260x180") %></td>
+        <td><%= image_tag(friend.user.try(:image).try(:url),:size => "260x180",style: "border-radius: 100%;") %></td>
         <td><%= link_to "Confirm",accept_friendship_path(friend.user_id) ,method: :post, class: "btn btn-info"%></td>
          <td><%= link_to "Reject",reject_friendship_path(friend) ,method: :post, class: "btn btn-info"%></td>
         <td><%= link_to "Details",friendships_path(:friend_id => friend), class: "btn btn-info"%></td>

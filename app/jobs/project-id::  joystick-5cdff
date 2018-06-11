@@ -1,0 +1,19 @@
+project-id::  joystick-5cdff
+
+
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAOnZ7RnkWTGF9VF8Rqjsz7Wt-16uAY_KY",
+    authDomain: "joystick-5cdff.firebaseapp.com",
+    databaseURL: "https://joystick-5cdff.firebaseio.com",
+    projectId: "joystick-5cdff",
+    storageBucket: "",
+    messagingSenderId: "716699057084"
+  };
+  firebase.initializeApp(config);
+</script>

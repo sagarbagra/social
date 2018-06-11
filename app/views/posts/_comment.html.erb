@@ -3,8 +3,15 @@
 	<br>
 <p class="post-title"><b><%= image_tag(comment.user.image,style: "height: 42px;border-top-left-radius: 8px;border-radius: 10px;") %>  <%=comment.user.name.titleize%></b>                <%= comment.comment%></p>
 
-<%=time_ago_in_words(comment.created_at)%>
+<abbr class="timeago" title="<%= comment.created_at.getutc.iso8601 %>">
+  <%= comment.created_at.to_s %>
+</abbr>
 <%= link_to "Delete",remove_comment_post_path(comment: comment), method: :post, class:"btn btn-primary btn-sm"%>
 </div>
 <%end%>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+  jQuery("abbr.timeago").timeago();
+});
+</script>
 <%= render "posts/formcom"%>

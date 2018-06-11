@@ -1,11 +1,11 @@
 class FriendshipsController < ApplicationController
 	before_action :authenticate_user!
 	def index
+		binding.pry
 		@friends=Friendship.where(friend_id: current_user.id, status: 'Pending').includes(:user)
 	end
 	
 	def myfriends
-		binding.pry
 		@friends=current_user.inverse_friendships
 		unless @friends.present?
 			@friends = current_user.friendships

@@ -33,8 +33,8 @@ resources :friendships do
 		get :myfriends
 	end
 end
-resources :friendrequests
-resource :friquests
-
-
+resources :conversations do 
+	resources :messages
+end
+# mount ActionCable.server => '/cable'
 end
